@@ -11,7 +11,7 @@ const GradeShader = {
     tDiffuse: { value: null },
     uTime: { value: 0 },
     uRes: { value: new THREE.Vector2(1, 1) },
-    uVignette: { value: 0.9 },
+    uVignette: { value: 0.78 },
     uGrain: { value: 0.042 },
     uCA: { value: 1.0 },
     uSat: { value: 1.04 },
@@ -67,7 +67,7 @@ const GradeShader = {
 export function createPost(renderer, scene, camera) {
   const composer = new EffectComposer(renderer);
   const renderPass = new RenderPass(scene, camera);
-  const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.62, 0.85, 0.86);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.5, 0.85, 0.88);
   const output = new OutputPass();
   const grade = new ShaderPass(GradeShader);
 

@@ -87,7 +87,7 @@ function addLights(scene, sunDir) {
   scene.add(sun, sun.target);
 
   // 天光
-  const hemi = new THREE.HemisphereLight(0x8ea8cf, 0x2b2519, 0.72);
+  const hemi = new THREE.HemisphereLight(0x8ea8cf, 0x2b2519, 0.8);
   scene.add(hemi);
 
   // 相向冷补光
@@ -428,7 +428,7 @@ function addFX(scene, T, R, chimneyTop) {
         p.z += cos(uTime * 0.19 + aPhase * 1.3) * 0.75;
         vec4 mv = modelViewMatrix * vec4(p, 1.0);
         gl_Position = projectionMatrix * mv;
-        gl_PointSize = aSize * uSize * uPR * (110.0 / max(1.0, -mv.z));
+        gl_PointSize = aSize * uSize * uPR * (3.4 / max(0.6, -mv.z));
         vTw = 0.25 + 0.75 * pow(0.5 + 0.5 * sin(uTime * 1.4 + aPhase * 3.1), 2.0);
       }`,
     fragmentShader: /* glsl */`

@@ -19,6 +19,7 @@ html, body {
   display: block;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   touch-action: none;
   cursor: grab;
 }
@@ -80,9 +81,10 @@ html, body {
   letter-spacing: 0.16em;
   pointer-events: none;
   white-space: nowrap;
-  transition: opacity 1.2s ease;
-  animation: fadeIn 1.6s ease 2.6s both;
+  opacity: 0;
+  transition: opacity 1.4s ease;
 }
+#hint.show { opacity: 0.55; }
 #hint.hide { opacity: 0; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 0.5; } }
 

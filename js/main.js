@@ -2,6 +2,14 @@ import * as THREE from 'three';
 import { buildWorld, heightAt } from './world.js';
 import { createPost } from './post.js';
 
+window.addEventListener('error', (e) => {
+  const b = document.getElementById('boot');
+  if (!b) return;
+  b.classList.remove('hide');
+  const sub = b.querySelector('.be');
+  if (sub) sub.textContent = ('加载出错 · ' + (e.message || '')).slice(0, 70);
+});
+
 const canvas = document.getElementById('c');
 const boot = document.getElementById('boot');
 const btnCam = document.getElementById('btnCam');
@@ -18,7 +26,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.14;
+renderer.toneMappingExposure = 1.18;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const world = buildWorld();
@@ -118,9 +126,11 @@ canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
 }, { passive: false });
 
-let hintTimer = setTimeout(hideHint, 6000);
+setTimeout(() => { if (hint) hint.classList.add('show'); }, 1500);
+let hintTimer = setTimeout(hideHint, 7500);
 function hideHint() {
   if (!hint) return;
+  hint.classList.remove('show');
   hint.classList.add('hide');
   clearTimeout(hintTimer);
 }

@@ -330,10 +330,10 @@ export function addYard(scene, T, M) {
     bloom.castShadow = true;
     g.add(bloom);
   };
-  pot(-1.6, FLOOR + 0.6, D / 2 + 0.28, 0.9, M.flower);
-  pot(1.95, 0.68, 4.55, 1.05, M.flowerY);
-  pot(2.3, 0.68, 4.35, 0.8, M.flower);
-  pot(-2.0, 0.1, 5.2, 1.0, M.flower);
+  pot(-1.62, 1.34, D / 2 + 0.34, 0.85, M.flower);
+  pot(1.98, 0.16, 4.55, 1.05, M.flowerY);
+  pot(2.34, 0.13, 4.3, 0.8, M.flower);
+  pot(-2.1, 0.15, 5.0, 1.0, M.flower);
 
   /* 晾衣绳 */
   const lineG = new THREE.Group();
